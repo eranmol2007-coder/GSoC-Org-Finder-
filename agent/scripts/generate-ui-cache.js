@@ -10,6 +10,9 @@ ensureDir(DATA_DIR);
 let issuesData;
 try {
   issuesData = readJsonFile(ISSUES_FILE);
+  if (!issuesData || typeof issuesData !== 'object' || Array.isArray(issuesData)) {
+    throw new Error('Invalid structure: expected a JSON object.');
+  }
 } catch (error) {
   console.error(`Fatal Error: Failed to read or parse issues data from '${ISSUES_FILE}'.`);
   console.error(`Details: ${error.message}`);

@@ -1,3 +1,4 @@
+/* eslint-env node */
 const path = require('node:path');
 const { ensureDir, readJsonFile, writeJsonFile, buildSummary } = require('./utils');
 
